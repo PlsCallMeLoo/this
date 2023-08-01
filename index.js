@@ -15,6 +15,10 @@ const dataSimplificada = data.toISOString().slice(0, 10) + data.toISOString().sl
 function genImage(link){
     var img = image(link.link, { type: 'png' });
     img.pipe(fs.createWriteStream( dataSimplificada + '.png'));
+
+    fs.writeFile("url.txt", link.link, (err) => {
+        console.log(err)
+    })
 }
  
 
